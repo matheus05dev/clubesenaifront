@@ -1,1 +1,90 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  /* Tema de Carros - Cores de Fundo e Containers */
+  --cor-fundo-principal: #0D1117; /* Preto profundo como asfalto */
+  --cor-fundo-secundaria: #1C2128; /* Cinza escuro como metal */
+  --cor-fundo-terciaria: #21262D; /* Cinza médio para elementos */
+
+  /* Cores de Destaque - Tema Automotivo */
+  --cor-destaque-primaria: #FF6B35; /* Laranja vibrante como faróis */
+  --cor-destaque-secundaria: #4ECDC4; /* Azul-turquesa como luzes LED */
+  --cor-destaque-complementar: #45B7D1; /* Azul metálico como pintura de carro */
+  --cor-destaque-accent: #F7DC6F; /* Amarelo dourado como detalhes cromados */
+
+  /* Cores de Texto e Neutras */
+  --cor-branco-puro: #FFFFFF;
+  --cor-texto-principal: #E6EDF3; /* Branco suave para textos principais */
+  --cor-texto-secundaria: #8B949E; /* Cinza claro para textos secundários */
+  --cor-texto-muted: #6E7681; /* Cinza médio para textos desabilitados */
+
+  /* Cores para Alerta e Aviso */
+  --cor-aviso: #F85149; /* Vermelho como luz de freio */
+  --cor-aviso-hover: #DA3633; /* Vermelho mais escuro para hover */
+  --cor-sucesso: #3FB950; /* Verde como luz de ré */
+  --cor-info: #58A6FF; /* Azul como luz de seta */
+
+  /* Variações de Opacidade para Destaque Primário */
+  --destaque-primaria-opacidade-90: rgba(255, 107, 53, 0.9);
+  --destaque-primaria-opacidade-70: rgba(255, 107, 53, 0.7);
+  --destaque-primaria-opacidade-60: rgba(255, 107, 53, 0.6);
+  --destaque-primaria-opacidade-50: rgba(255, 107, 53, 0.5);
+
+  /* Variações de Opacidade para Destaque Secundário */
+  --destaque-secundaria-opacidade-90: rgba(78, 205, 196, 0.9);
+  --destaque-secundaria-opacidade-70: rgba(78, 205, 196, 0.7);
+  --destaque-secundaria-opacidade-60: rgba(78, 205, 196, 0.6);
+  --destaque-secundaria-opacidade-50: rgba(78, 205, 196, 0.5);
+
+  /* Variações de Opacidade para a Cor Complementar */
+  --destaque-complementar-opacidade-90: rgba(69, 183, 209, 0.9);
+  --destaque-complementar-opacidade-70: rgba(69, 183, 209, 0.7);
+  --destaque-complementar-opacidade-60: rgba(69, 183, 209, 0.6);
+  --destaque-complementar-opacidade-50: rgba(69, 183, 209, 0.5);
+
+  /* Sombras e Efeitos */
+  --sombra-leve: 0 1px 3px rgba(0, 0, 0, 0.2);
+  --sombra-moderada: 0 4px 6px rgba(0, 0, 0, 0.3);
+  --sombra-intensa: 0 10px 20px rgba(0, 0, 0, 0.4);
+  --sombra-neon: 0 0 20px rgba(255, 107, 53, 0.3);
+
+  /* Botões - Tema Automotivo */
+  --botao-enviar-fundo: #3FB950; /* Verde como luz de ré */
+  --botao-enviar-fundo-hover: #2EA043;
+
+  --botao-cancelar-fundo: #F85149; /* Vermelho como luz de freio */
+  --botao-cancelar-fundo-hover: #DA3633;
+
+  --botao-editar-fundo: #FF6B35; /* Laranja como faróis */
+  --botao-editar-fundo-hover: #E55A2B;
+
+  /* Gradientes temáticos */
+  --gradiente-asfalto: linear-gradient(135deg, #0D1117 0%, #1C2128 100%);
+  --gradiente-metal: linear-gradient(135deg, #21262D 0%, #30363D 100%);
+  --gradiente-farol: linear-gradient(135deg, #FF6B35 0%, #FF8C42 100%);
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+/* Overrides globais para Material Form Field - evitar hover/foco preto */
+.mat-mdc-form-field-focus-overlay {
+  background-color: rgba(255, 107, 53, 0.08) !important;
+}
+
+.mat-mdc-form-field.mat-focused .mat-mdc-form-field-focus-overlay,
+.mat-mdc-form-field:hover .mat-mdc-form-field-focus-overlay {
+  background-color: rgba(255, 107, 53, 0.12) !important;
+}
+
+.mat-mdc-form-field:hover .mdc-notched-outline__leading,
+.mat-mdc-form-field:hover .mdc-notched-outline__notch,
+.mat-mdc-form-field:hover .mdc-notched-outline__trailing,
+.mat-mdc-form-field.mat-focused .mdc-notched-outline__leading,
+.mat-mdc-form-field.mat-focused .mdc-notched-outline__notch,
+.mat-mdc-form-field.mat-focused .mdc-notched-outline__trailing {
+  border-color: var(--cor-destaque-primaria) !important;
+}
+
+.mat-mdc-form-field:hover .mat-mdc-form-field-label,
+.mat-mdc-form-field.mat-focused .mat-mdc-form-field-label {
+  color: var(--cor-destaque-primaria) !important;
+}

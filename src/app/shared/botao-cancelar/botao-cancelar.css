@@ -1,0 +1,16 @@
+button {
+    background-color: var(--botao-cancelar-fundo); /* Vermelho Cancelar */
+    color: var(--cor-branco-puro);
+    font-weight: bold;
+    font-size: 1.2em;
+    box-shadow: var(--sombra-moderada);
+    border: none;
+    border-radius: 4px;
+    padding: 8px 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: var(--botao-cancelar-fundo-hover) !important;
+}
