@@ -4,6 +4,7 @@ import { authGuard } from "./core/guard/auth-guard";
 import { Navegacao } from './layout/navegacao/navegacao';
 import { Home } from './pages/home/home';
 import { CriarSocios } from './pages/criar-socios/criar-socios';
+import { ListarSocios } from './pages/listar-socios/listar-socios';
 
 export const routes: Routes = [
     {
@@ -20,8 +21,12 @@ export const routes: Routes = [
                 component: Home,
             },
             {
-              path: 'criar-socios',
-              component: CriarSocios,
+                path: 'criar-socios',
+                component: CriarSocios,
+            },
+            {
+                path: 'listar-socios',
+                component: ListarSocios
             }
         ]
     }

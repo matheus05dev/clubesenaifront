@@ -1,0 +1,212 @@
+.login-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: var(--gradiente-asfalto);
+  overflow: hidden;
+}
+
+.car-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  opacity: 0.1;
+}
+
+.road-lines {
+  position: absolute;
+  bottom: 20%;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--cor-destaque-accent) 0px,
+    var(--cor-destaque-accent) 40px,
+    transparent 40px,
+    transparent 80px
+  );
+  animation: roadMove 3s linear infinite;
+}
+
+.login-card {
+  position: relative;
+  z-index: 2;
+  background: var(--gradiente-metal);
+  border-radius: 20px;
+  padding: 2rem;
+  max-width: 960px;
+  width: 100%;
+  margin: 1.2rem auto;
+  box-shadow: var(--sombra-intensa), var(--sombra-neon);
+  border: 1px solid var(--cor-fundo-terciaria);
+  backdrop-filter: blur(10px);
+  box-sizing: border-box;
+  overflow: visible;
+}
+
+.card-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.car-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  animation: carBounce 2s ease-in-out infinite;
+}
+
+.card-header h2 {
+  color: var(--cor-destaque-primaria);
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem 0;
+  text-shadow: 0 0 15px var(--destaque-primaria-opacidade-70);
+}
+
+.subtitle {
+  color: var(--cor-destaque-secundaria);
+  font-size: 1rem;
+  margin: 0;
+  font-weight: 500;
+}
+
+.container {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 10px;
+  background: var(--cor-fundo-secundaria);
+  border-radius: 12px;
+  box-shadow: var(--sombra-leve);
+}
+
+.topo_tabela {
+  color: var(--cor-destaque-primaria);
+  font-weight: 700;
+  padding: 12px 16px;
+  text-align: left;
+  border-bottom: 2px solid var(--cor-destaque-primaria);
+}
+
+.corpo_tabela {
+  color: var(--cor-destaque-secundaria);
+  padding: 12px 16px;
+  vertical-align: middle;
+}
+
+tr.mat-row {
+  background: var(--cor-fundo-terciaria);
+  border-radius: 12px;
+  transition: background-color 0.3s ease;
+}
+
+tr.mat-row:hover {
+  background: var(--destaque-primaria-opacidade-50);
+  cursor: pointer;
+}
+
+.acoes {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.icon-edit {
+  color: var(--cor-destaque-primaria);
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.icon-edit:hover {
+  color: var(--cor-destaque-accent);
+}
+
+.icon-delete {
+  color: var(--cor-aviso);
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.icon-delete:hover {
+  color: var(--cor-aviso-hover);
+}
+
+.liberado{
+  color: var(--botao-enviar-fundo-hover);
+  font-weight: 600;
+}
+
+.bloqueado{
+  color: var(--botao-cancelar-fundo-hover);
+  font-weight: 600;
+}
+
+.fora-do-clube {
+  color: var(--botao-cancelar-fundo-hover);
+  font-weight: 600;
+}
+
+.dentro-do-clube {
+  color: var(--botao-enviar-fundo-hover);
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .login-card {
+    padding: 1rem;
+    margin: 0.5rem;
+    max-width: 95%;
+  }
+
+  .card-header h2 {
+    font-size: 1.75rem;
+  }
+
+  .car-icon {
+    font-size: 2.75rem;
+  }
+
+  table {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .login-card {
+    padding: 0.8rem;
+    margin: 0.25rem;
+    max-width: 100%;
+  }
+
+  .card-header h2 {
+    font-size: 1.5rem;
+  }
+
+  .car-icon {
+    font-size: 2.5rem;
+  }
+
+  th.mat-header-cell,
+  td.mat-cell {
+    padding: 8px 10px;
+  }
+}
+
+@keyframes roadMove {
+  0% { transform: translateX(-100px); }
+  100% { transform: translateX(100px); }
+}
+
+@keyframes carBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}

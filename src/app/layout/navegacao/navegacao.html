@@ -1,1 +1,29 @@
-<router-outlet></router-outlet>
+<mat-drawer-container class="container" autosize>
+  <mat-drawer #drawer class="sidenav" mode="side">
+    <div class="sidenav-header">
+      <h2>Initial D Project</h2>
+    </div>
+    <ul class="sidenav-menu">
+      <li routerLink="home" routerLinkActive="link-active">
+        <mat-icon>home</mat-icon>
+        <span>Início</span>
+      </li>
+      <li routerLink="listar-socios" routerLinkActive="link-active">
+        <mat-icon>supervisor_account</mat-icon>
+        <span>Listar Sócios</span>
+      </li>
+      <li>
+        <mat-icon>logout</mat-icon>
+        <span>Sair</span>
+      </li>
+    </ul>
+  </mat-drawer>
+
+  <div class="sidenav-content">
+    <button type="button" matButton (click)="drawer.toggle()">
+      <mat-icon class="menu-icon
+      ">menu</mat-icon>
+    </button>
+    <router-outlet></router-outlet>
+  </div>
+</mat-drawer-container>

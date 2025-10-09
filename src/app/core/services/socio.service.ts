@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { API_CONFIG } from '../config/API_CONFIG';
 import { EditarSocioForm } from '../types/EditarSocioForm';
 import { CadastroSocioForm } from './../types/CadastroSocioForm';
+import { SocioResponse } from '../types/SocioResponse';
 
 @Injectable({
   providedIn: 'root'
@@ -24,15 +25,15 @@ export class SocioService {
     return this.Http.put<void>(`${API_CONFIG.baseUrl}/socios/${id}`, form);
   }
 
-  buscarPorId(id: number): Observable<CadastroSocioForm> {
-    return this.Http.get<CadastroSocioForm>(`${API_CONFIG.baseUrl}/socios/${id}`);
+  buscarPorId(id: number): Observable<SocioResponse> {
+    return this.Http.get<SocioResponse>(`${API_CONFIG.baseUrl}/socios/${id}`);
   }
 
-  buscarTodos(): Observable<CadastroSocioForm[]> {
-    return this.Http.get<CadastroSocioForm[]>(`${API_CONFIG.baseUrl}/socios`);
+  buscarTodos(): Observable<SocioResponse[]> {
+    return this.Http.get<SocioResponse[]>(`${API_CONFIG.baseUrl}/socios`);
   }
 
-  buscarPorNome(nome: string): Observable<CadastroSocioForm[]> {
-    return this.Http.get<CadastroSocioForm[]>(`${API_CONFIG.baseUrl}/socios/nome/${nome}`);
+  buscarPorNome(nome: string): Observable<SocioResponse[]> {
+    return this.Http.get<SocioResponse[]>(`${API_CONFIG.baseUrl}/socios/nome/${nome}`);
   }
 }
