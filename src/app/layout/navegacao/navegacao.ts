@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterModule} from '@angular/router';
+import { AuthService } from '../../core/services/AuthService';
 
 @Component({
   selector: 'app-navegacao',
@@ -17,4 +18,9 @@ import { RouterModule} from '@angular/router';
 })
 export class Navegacao {
 
+  private authService = inject(AuthService);
+
+  logout(): void {
+    this.authService.logout();
+  }
 }

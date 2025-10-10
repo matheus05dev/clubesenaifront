@@ -4,6 +4,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 
 import { BotaoConfirmacao } from './../../shared/botao-confirmacao/botao-confirmacao';
 import { AuthService } from './../../core/services/AuthService';
@@ -27,6 +28,7 @@ import { LoginForm } from './../../core/types/LoginForm';
 export class Login {
 
   private AuthService = inject(AuthService);
+  private toastr = inject(ToastrService);
 
   loginForm: LoginForm = {
     email: '',
@@ -44,10 +46,10 @@ export class Login {
     this.loginForm = this.form.value as unknown as LoginForm;
     this.AuthService.autenticar(this.loginForm).subscribe({
       next: () => {
-        alert('Login bem-sucedido');
+        this.toastr.success('Login bem-sucedido');
       },
       error: () => {
-        alert('Erro ao fazer login');
+        this.toastr.error('Erro ao fazer login');
       }
     });
   }

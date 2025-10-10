@@ -5,6 +5,7 @@ import { Navegacao } from './layout/navegacao/navegacao';
 import { Home } from './pages/home/home';
 import { CriarSocios } from './pages/criar-socios/criar-socios';
 import { ListarSocios } from './pages/listar-socios/listar-socios';
+import { EditarSocios } from './pages/editar-socios/editar-socios';
 
 export const routes: Routes = [
     {
@@ -27,7 +28,11 @@ export const routes: Routes = [
             {
                 path: 'listar-socios',
                 component: ListarSocios
-            }
+            },
+            {
+                path: 'editar-socios/:id',
+                component: EditarSocios
+            },
         ]
     }
 ];

@@ -1,0 +1,17 @@
+<div class="container">
+    <h1>Alterar Tag do Usuário</h1>
+    <form [formGroup]="form">
+        <mat-form-field appearance="outline">
+            <mat-label>Alterar Tag</mat-label>
+            <input matInput placeholder="Alterar a tag" formControlName="tag" class="tag">
+            <mat-icon matSuffix>badge</mat-icon>
+        </mat-form-field>
+        <div>
+            <app-botao-confirmacao (botaoAcionado)="cadastraTag()">
+                texto="Alterar"
+                icone="refresh"
+            </app-botao-confirmacao>
+            <app-botao-cancelar (botaoAcionado)="cancelar()"></app-botao-cancelar>
+        </div>
+    </form>
+</div>

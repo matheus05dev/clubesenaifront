@@ -1,4 +1,4 @@
-.login-container {
+.bg-container {
   position: relative;
   display: flex;
   justify-content: center;
@@ -34,7 +34,7 @@
   animation: roadMove 3s linear infinite;
 }
 
-.login-card {
+.ls-card {
   position: relative;
   z-index: 2;
   background: var(--gradiente-metal);
@@ -48,6 +48,13 @@
   backdrop-filter: blur(10px);
   box-sizing: border-box;
   overflow: visible;
+}
+
+.botoes {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 1rem;
+  gap: 10px;
 }
 
 .card-header {
@@ -121,13 +128,13 @@ tr.mat-row:hover {
 }
 
 .icon-edit {
-  color: var(--cor-destaque-primaria);
+  color: var(--botao-editar-fundo);
   cursor: pointer;
   transition: color 0.3s ease;
 }
 
 .icon-edit:hover {
-  color: var(--cor-destaque-accent);
+  color: var(--botao-editar-fundo-hover);
 }
 
 .icon-delete {
@@ -138,6 +145,16 @@ tr.mat-row:hover {
 
 .icon-delete:hover {
   color: var(--cor-aviso-hover);
+}
+
+.icon-tag {
+  color: var(--destaque-complementar-opacidade-50);
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.icon-tag:hover {
+  color: var(--destaque-complementar-opacidade-90);
 }
 
 .liberado{

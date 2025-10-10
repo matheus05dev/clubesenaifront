@@ -1,5 +1,4 @@
-/* Fundo e container principal igual ao login */
-.login-container {
+.bg-container {
   position: relative;
   display: flex;
   justify-content: center;
@@ -25,18 +24,15 @@
   left: 0;
   width: 100%;
   height: 4px;
-  background: repeating-linear-gradient(
-    90deg,
-    var(--cor-destaque-accent) 0px,
-    var(--cor-destaque-accent) 40px,
-    transparent 40px,
-    transparent 80px
-  );
+  background: repeating-linear-gradient(90deg,
+      var(--cor-destaque-accent) 0px,
+      var(--cor-destaque-accent) 40px,
+      transparent 40px,
+      transparent 80px);
   animation: roadMove 3s linear infinite;
 }
 
-/* Card visual igual ao login */
-.login-card {
+.cs-card {
   position: relative;
   z-index: 2;
   background: var(--gradiente-metal);
@@ -80,7 +76,7 @@
 }
 
 /* Formulário igual ao login */
-.login-form {
+.cs-form {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 0.7rem 1rem;
@@ -209,6 +205,7 @@
   gap: 1rem;
   width: 100%;
 }
+
 .form-field-row .form-field-sm {
   flex: 1 1 0;
   min-width: 0;
@@ -221,51 +218,63 @@
   gap: 1rem;
   width: 100%;
 }
+
 .form-field-row-rua-numero .form-field {
   flex: 1 1 0;
   min-width: 0;
 }
+
 .form-field-row-rua-numero .form-field-sm {
   max-width: 120px;
 }
 
 @media (max-width: 600px) {
+
   .form-field-row,
   .form-field-row-rua-numero {
     flex-direction: column;
     gap: 0.5rem;
   }
+
   .form-field-row-rua-numero .form-field-sm {
     max-width: none;
   }
 }
 
 @media (max-width: 600px) {
-  .login-card {
+  .cs-card {
     max-width: 99vw;
     min-width: 0;
     padding: 0.7rem;
   }
-  .login-form {
+
+  .cs-form {
     grid-template-columns: 1fr;
     gap: 0.5rem;
   }
-  .form-field-xl, .form-field-lg, .button-group {
+
+  .form-field-xl,
+  .form-field-lg,
+  .button-group {
     grid-column: 1 / 2;
   }
+
   .form-field-row,
   .form-field-row-rua-numero {
     flex-direction: column;
     gap: 0.5rem;
   }
+
   .form-field-row-rua-numero .form-field-sm {
     max-width: none;
   }
+
   .button-group {
     flex-direction: column-reverse;
     align-items: stretch;
     gap: 0.5rem;
   }
+
   .button-group app-botao-confirmacao,
   .button-group app-botao-cancelar {
     width: 100%;
@@ -275,80 +284,106 @@
 }
 
 @media (max-width: 480px) {
-  .login-card {
+  .cs-card {
     padding: 1rem;
     margin: 0.25rem;
     width: 99%;
     min-width: 160px;
     max-width: 99vw;
   }
+
   .card-header h2 {
     font-size: 1.5rem;
   }
+
   .car-icon {
     font-size: 2.5rem;
   }
+
   .subtitle {
     font-size: 0.9rem;
   }
+
   .login-form {
     gap: 1.25rem;
   }
+
   .form-field label {
     font-size: 0.9rem;
   }
+
   .card-footer p {
     font-size: 0.85rem;
   }
 }
 
 @media (max-width: 360px) {
-  .login-card {
+  .cs-card {
     padding: 0.5rem;
     border-radius: 12px;
     min-width: 100px;
   }
+
   .card-header h2 {
     font-size: 1.25rem;
   }
+
   .car-icon {
     font-size: 2rem;
   }
+
   .button-group {
     margin-top: 1.5rem;
   }
 }
 
 @keyframes roadMove {
-  0% { transform: translateX(-100px); }
-  100% { transform: translateX(100px); }
+  0% {
+    transform: translateX(-100px);
+  }
+
+  100% {
+    transform: translateX(100px);
+  }
 }
 
 @keyframes carBounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
 }
 
 @media (max-width: 768px) {
-  .login-container {
+  .ng-container {
     padding: 1rem;
   }
-  .login-card {
+
+  .cs-card {
     padding: 2rem;
     margin: 0.5rem;
     width: 95%;
     max-width: 400px;
   }
+
   .card-header h2 {
     font-size: 1.75rem;
   }
+
   .car-icon {
     font-size: 2.75rem;
   }
+
   .button-group {
     flex-direction: column;
     gap: 0.75rem;
   }
+
   .button-group button[type="submit"] {
     width: 100%;
     max-width: none;
@@ -356,14 +391,16 @@
 }
 
 @media (max-width: 400px) {
-  .login-card {
+  .cs-card {
     padding: 0.3rem;
     border-radius: 10px;
     min-width: 80px;
   }
+
   .form-field label {
     font-size: 0.9rem;
   }
+
   .form-field input[type="text"],
   .form-field input[type="email"],
   .form-field input[type="date"] {
@@ -384,6 +421,7 @@
   width: 100%;
   box-sizing: border-box;
 }
+
 .input-icon-wrapper .material-icons {
   color: var(--cor-destaque-primaria, #f56a00);
   font-size: 1.3em;
@@ -391,6 +429,7 @@
   text-align: center;
   user-select: none;
 }
+
 .input-icon-wrapper input[type="text"],
 .input-icon-wrapper input[type="email"],
 .input-icon-wrapper input[type="date"] {
@@ -407,18 +446,19 @@
   box-sizing: border-box;
   margin-left: 0;
 }
+
 .input-icon-wrapper input:focus {
   background: rgba(255, 107, 53, 0.06);
 }
+
 @media (max-width: 600px) {
   .input-icon-wrapper {
     padding: 0 0.4rem;
     gap: 0.3rem;
   }
+
   .input-icon-wrapper .material-icons {
     font-size: 1.1em;
     min-width: 1.2em;
   }
 }
-
-

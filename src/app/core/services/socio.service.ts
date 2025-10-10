@@ -6,6 +6,7 @@ import { API_CONFIG } from '../config/API_CONFIG';
 import { EditarSocioForm } from '../types/EditarSocioForm';
 import { CadastroSocioForm } from './../types/CadastroSocioForm';
 import { SocioResponse } from '../types/SocioResponse';
+import { CadastraTagForm } from '../types/CadastraTagForm';
 
 @Injectable({
   providedIn: 'root'
@@ -35,5 +36,9 @@ export class SocioService {
 
   buscarPorNome(nome: string): Observable<SocioResponse[]> {
     return this.Http.get<SocioResponse[]>(`${API_CONFIG.baseUrl}/socios/nome/${nome}`);
+  }
+
+  cadastrarTag(form: CadastraTagForm):Observable<void> {
+    return this.Http.patch<void>(`${API_CONFIG.baseUrl}/acessos/cadastrar-tag`, form);
   }
 }

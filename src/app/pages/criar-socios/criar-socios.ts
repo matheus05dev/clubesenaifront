@@ -1,14 +1,16 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup, FormsModule, Validators, ReactiveFormsModule } from "@angular/forms";
 
 import { BotaoConfirmacao } from '../../shared/botao-confirmacao/botao-confirmacao';
 import { BotaoCancelar } from '../../shared/botao-cancelar/botao-cancelar';
 import { CadastroSocioForm } from '../../core/types/CadastroSocioForm';
 import { SocioService } from '../../core/services/socio.service';
+import { RouterModule } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-criar-socios',
-  imports: [BotaoConfirmacao, BotaoCancelar, FormsModule, ReactiveFormsModule],
+  imports: [BotaoConfirmacao, BotaoCancelar, FormsModule, ReactiveFormsModule, RouterModule],
   templateUrl: './criar-socios.html',
   styleUrl: './criar-socios.css'
 })
@@ -45,17 +47,25 @@ export class CriarSocios{
   );
 
   constructor(private socioService: SocioService) { }
+  private toastr = inject(ToastrService);
+
 
   criarSocio(): void {
     this.cadastroSocioForm = this.form.value as unknown as CadastroSocioForm;
     this.socioService.cadastrar(this.cadastroSocioForm).subscribe({
       next: () => {
-        alert('Sócio cadastrado com sucesso!');
+        this.toastr.success('Sócio cadastrado com sucesso!');
         this.form.reset();
       },
       error: () => {
-        alert('Erro ao cadastrar sócio. Por favor, tente novamente.');
+         this.toastr.error('Erro ao cadastrar sócio. Por favor, tente novamente.');
       }
     });
   }
+
+  cancelar(): void {
+    this.form.reset();
+    document.location.href = '/listar-socios';
+  }
+
 }

@@ -2,7 +2,7 @@ import { BehaviorSubject, Observable, tap } from "rxjs";
 import { HttpClient, HttpResponse } from "@angular/common/http";
 import { inject, Injectable } from "@angular/core";
 
-import { TokenService } from './TokenService';
+import { TokenService } from './token.service';
 import { LoginForm } from "../types/LoginForm";
 import { UsuarioAutenticado } from "../types/UsuarioAutenticado";
 import { TokenResponse } from "../types/TokenResponse";
@@ -34,6 +34,7 @@ export class AuthService {
         tap((response) => {
           const token = response.body?.token || '';
           this.setUsuarioAutenticado(token);
+          this.router.navigate(['home']);
         })
       );
   }

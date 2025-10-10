@@ -1,0 +1,466 @@
+/* Styles copied from criar-socios.css to keep the same look & feel for editar-socios */
+.bg-container {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+	background: var(--gradiente-asfalto);
+	overflow: hidden;
+}
+
+.car-background {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+	opacity: 0.1;
+}
+
+.road-lines {
+	position: absolute;
+	bottom: 20%;
+	left: 0;
+	width: 100%;
+	height: 4px;
+	background: repeating-linear-gradient(90deg,
+			var(--cor-destaque-accent) 0px,
+			var(--cor-destaque-accent) 40px,
+			transparent 40px,
+			transparent 80px);
+	animation: roadMove 3s linear infinite;
+}
+
+.cs-card {
+	position: relative;
+	z-index: 2;
+	background: var(--gradiente-metal);
+	border-radius: 20px;
+	padding: 2.5rem;
+	max-width: 540px;
+	min-width: 260px;
+	width: 100%;
+	margin: 1.2rem auto;
+	box-shadow: var(--sombra-intensa), var(--sombra-neon);
+	border: 1px solid var(--cor-fundo-terciaria);
+	backdrop-filter: blur(10px);
+	box-sizing: border-box;
+	overflow: visible;
+}
+
+.card-header {
+	text-align: center;
+	margin-bottom: 2rem;
+}
+
+.car-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+	animation: carBounce 2s ease-in-out infinite;
+}
+
+.card-header h2 {
+	color: var(--cor-destaque-primaria);
+	font-size: 2rem;
+	font-weight: 700;
+	margin: 0 0 0.5rem 0;
+	text-shadow: 0 0 15px var(--destaque-primaria-opacidade-70);
+}
+
+.subtitle {
+	color: var(--cor-destaque-secundaria);
+	font-size: 1rem;
+	margin: 0;
+	font-weight: 500;
+}
+
+/* Formulário igual ao login */
+.cs-form {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 0.7rem 1rem;
+	width: 100%;
+	box-sizing: border-box;
+}
+
+.form-field {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+	box-sizing: border-box;
+}
+
+.form-field-xl {
+	grid-column: 1 / 3;
+}
+
+.form-field-lg {
+	grid-column: 1 / 3;
+}
+
+.form-field-sm {
+	grid-column: auto;
+}
+
+.button-group {
+	grid-column: 1 / 3;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+	align-items: center;
+	gap: 0.8rem;
+	margin-top: 1.2rem;
+	width: 100%;
+	text-align: center;
+}
+
+.button-group button[type="submit"] {
+	background: var(--cor-destaque-primaria);
+	color: var(--cor-branco-puro);
+	border: none;
+	border-radius: 12px;
+	padding: 0.9rem 0;
+	font-size: 1.1rem;
+	font-weight: 700;
+	cursor: pointer;
+	min-width: 140px;
+	max-width: 180px;
+	box-shadow: var(--sombra-neon);
+	transition: background 0.3s, color 0.3s;
+}
+
+.button-group button[type="submit"]:hover {
+	background: var(--cor-destaque-accent);
+	color: var(--cor-destaque-primaria);
+}
+
+.button-group app-botao-confirmacao,
+.button-group app-botao-cancelar {
+	min-width: 90px;
+	max-width: 120px;
+	display: flex;
+	justify-content: center;
+}
+
+.button-group app-botao-confirmacao ::ng-deep button,
+.button-group app-botao-cancelar ::ng-deep button {
+	display: flex !important;
+	align-items: center !important;
+	justify-content: center !important;
+	gap: 0.5rem !important;
+	font-size: 1.1em;
+	min-height: 44px;
+	min-width: 120px;
+	padding: 0.5rem 1.2rem !important;
+	overflow: visible !important;
+}
+
+.button-group app-botao-confirmacao ::ng-deep .material-icons,
+.button-group app-botao-cancelar ::ng-deep .material-icons {
+	font-size: 1.7em !important;
+	line-height: 1 !important;
+	vertical-align: middle !important;
+	width: 1.2em;
+	height: 1.2em;
+	overflow: visible !important;
+	display: inline-flex !important;
+	align-items: center !important;
+	justify-content: center !important;
+}
+
+.form-field label {
+	color: var(--cor-destaque-primaria, #f56a00);
+	font-weight: 600;
+	margin-bottom: 0.2rem;
+	letter-spacing: 0.01em;
+	text-shadow: 0 1px 6px rgba(0, 0, 0, 0.10);
+}
+
+.form-field input[type="text"],
+.form-field input[type="email"],
+.form-field input[type="date"] {
+	background-color: var(--cor-fundo-secundaria);
+	color: var(--cor-branco-puro);
+	border: 1px solid var(--cor-fundo-terciaria);
+	border-radius: 12px;
+	padding: 0.5rem 0.7rem;
+	font-size: 0.95rem;
+	transition: border-color 0.3s, background 0.3s;
+	outline: none;
+	font-weight: 500;
+	width: 100%;
+	box-sizing: border-box;
+}
+
+.form-field input:focus {
+	border-color: var(--cor-destaque-primaria);
+	background-color: rgba(255, 107, 53, 0.06);
+}
+
+.form-field-row {
+	display: flex;
+	flex-direction: row;
+	gap: 1rem;
+	width: 100%;
+}
+
+.form-field-row .form-field-sm {
+	flex: 1 1 0;
+	min-width: 0;
+}
+
+/* Alinhar número ao lado de rua */
+.form-field-row-rua-numero {
+	display: flex;
+	flex-direction: row;
+	gap: 1rem;
+	width: 100%;
+}
+
+.form-field-row-rua-numero .form-field {
+	flex: 1 1 0;
+	min-width: 0;
+}
+
+.form-field-row-rua-numero .form-field-sm {
+	max-width: 120px;
+}
+
+@media (max-width: 600px) {
+
+	.form-field-row,
+	.form-field-row-rua-numero {
+		flex-direction: column;
+		gap: 0.5rem;
+	}
+
+	.form-field-row-rua-numero .form-field-sm {
+		max-width: none;
+	}
+}
+
+@media (max-width: 600px) {
+	.cs-card {
+		max-width: 99vw;
+		min-width: 0;
+		padding: 0.7rem;
+	}
+
+	.cs-form {
+		grid-template-columns: 1fr;
+		gap: 0.5rem;
+	}
+
+	.form-field-xl,
+	.form-field-lg,
+	.button-group {
+		grid-column: 1 / 2;
+	}
+
+	.form-field-row,
+	.form-field-row-rua-numero {
+		flex-direction: column;
+		gap: 0.5rem;
+	}
+
+	.form-field-row-rua-numero .form-field-sm {
+		max-width: none;
+	}
+
+	.button-group {
+		flex-direction: column-reverse;
+		align-items: stretch;
+		gap: 0.5rem;
+	}
+
+	.button-group app-botao-confirmacao,
+	.button-group app-botao-cancelar {
+		width: 100%;
+		min-width: 0;
+		max-width: none;
+	}
+}
+
+@media (max-width: 480px) {
+	.cs-card {
+		padding: 1rem;
+		margin: 0.25rem;
+		width: 99%;
+		min-width: 160px;
+		max-width: 99vw;
+	}
+
+	.card-header h2 {
+		font-size: 1.5rem;
+	}
+
+	.car-icon {
+		font-size: 2.5rem;
+	}
+
+	.subtitle {
+		font-size: 0.9rem;
+	}
+
+	.login-form {
+		gap: 1.25rem;
+	}
+
+	.form-field label {
+		font-size: 0.9rem;
+	}
+
+	.card-footer p {
+		font-size: 0.85rem;
+	}
+}
+
+@media (max-width: 360px) {
+	.cs-card {
+		padding: 0.5rem;
+		border-radius: 12px;
+		min-width: 100px;
+	}
+
+	.card-header h2 {
+		font-size: 1.25rem;
+	}
+
+	.car-icon {
+		font-size: 2rem;
+	}
+
+	.button-group {
+		margin-top: 1.5rem;
+	}
+}
+
+@keyframes roadMove {
+	0% {
+		transform: translateX(-100px);
+	}
+
+	100% {
+		transform: translateX(100px);
+	}
+}
+
+@keyframes carBounce {
+
+	0%,
+	100% {
+		transform: translateY(0);
+	}
+
+	50% {
+		transform: translateY(-10px);
+	}
+}
+
+@media (max-width: 768px) {
+	.ng-container {
+		padding: 1rem;
+	}
+
+	.cs-card {
+		padding: 2rem;
+		margin: 0.5rem;
+		width: 95%;
+		max-width: 400px;
+	}
+
+	.card-header h2 {
+		font-size: 1.75rem;
+	}
+
+	.car-icon {
+		font-size: 2.75rem;
+	}
+
+	.button-group {
+		flex-direction: column;
+		gap: 0.75rem;
+	}
+
+	.button-group button[type="submit"] {
+		width: 100%;
+		max-width: none;
+	}
+}
+
+@media (max-width: 400px) {
+	.cs-card {
+		padding: 0.3rem;
+		border-radius: 10px;
+		min-width: 80px;
+	}
+
+	.form-field label {
+		font-size: 0.9rem;
+	}
+
+	.form-field input[type="text"],
+	.form-field input[type="email"],
+	.form-field input[type="date"] {
+		font-size: 0.9rem;
+		padding: 0.4rem 0.5rem;
+	}
+}
+
+/* Novos estilos para ícones nos campos do formulário */
+.input-icon-wrapper {
+	display: flex;
+	align-items: center;
+	background: none;
+	border-radius: 0;
+	border: none;
+	padding: 0;
+	gap: 0.5rem;
+	width: 100%;
+	box-sizing: border-box;
+}
+
+.input-icon-wrapper .material-icons {
+	color: var(--cor-destaque-primaria, #f56a00);
+	font-size: 1.3em;
+	min-width: 1.5em;
+	text-align: center;
+	user-select: none;
+}
+
+.input-icon-wrapper input[type="text"],
+.input-icon-wrapper input[type="email"],
+.input-icon-wrapper input[type="date"] {
+	border: 1px solid var(--cor-fundo-terciaria);
+	border-radius: 12px;
+	outline: none;
+	background: var(--cor-fundo-secundaria);
+	color: var(--cor-branco-puro);
+	font-size: 1em;
+	padding: 0.7rem 1rem;
+	width: 100%;
+	min-width: 0;
+	max-width: 100%;
+	box-sizing: border-box;
+	margin-left: 0;
+}
+
+.input-icon-wrapper input:focus {
+	background: rgba(255, 107, 53, 0.06);
+}
+
+@media (max-width: 600px) {
+	.input-icon-wrapper {
+		padding: 0 0.4rem;
+		gap: 0.3rem;
+	}
+
+	.input-icon-wrapper .material-icons {
+		font-size: 1.1em;
+		min-width: 1.2em;
+	}
+}
+
