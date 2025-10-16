@@ -5,14 +5,15 @@ import { BotaoConfirmacao } from '../../shared/botao-confirmacao/botao-confirmac
 import { BotaoCancelar } from '../../shared/botao-cancelar/botao-cancelar';
 import { CadastroSocioForm } from '../../core/types/CadastroSocioForm';
 import { SocioService } from '../../core/services/socio.service';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Router} from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-criar-socios',
+  standalone: true,
   imports: [BotaoConfirmacao, BotaoCancelar, FormsModule, ReactiveFormsModule, RouterModule],
   templateUrl: './criar-socios.html',
-  styleUrl: './criar-socios.css'
+  styleUrls: ['./criar-socios.css']
 })
 
 export class CriarSocios{
@@ -46,8 +47,8 @@ export class CriarSocios{
     }
   );
 
-  constructor(private socioService: SocioService) { }
   private toastr = inject(ToastrService);
+  constructor(private socioService: SocioService, private router: Router) { }
 
 
   criarSocio(): void {
@@ -56,6 +57,7 @@ export class CriarSocios{
       next: () => {
         this.toastr.success('Sócio cadastrado com sucesso!');
         this.form.reset();
+        this.router.navigate(['/listar-socios']);
       },
       error: () => {
          this.toastr.error('Erro ao cadastrar sócio. Por favor, tente novamente.');
